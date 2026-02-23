@@ -1,0 +1,26 @@
+* {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, Helvetica, sans-serif;
+   line-height: 2;
+   font-weight: bold;
+   color: rgb(255, 214, 253);
+}
+
+body {
+   min-height: 100vh;
+   min-height: 100dvh;
+   display: grid;
+   place-content: center;
+   background-image: linear-gradient(to top right, rgb(65, 0, 196), rgb(154, 46, 255));
+}
+
+ul {
+   /* background-color: rgba(0, 0, 0, 0.05); */
+   border-radius: 25px;
+   padding: 20px;
+}
+
+li {
+   list-style: none;
+}
