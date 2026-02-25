@@ -23,8 +23,8 @@ def get_lang_display_name(request: Request) -> str:
 
 @app.get('/')
 async def root(request:Request):
-   headers = request.headers
-   ua = parse(headers.get("user-agent"))
+   ua = parse(request.headers.get("user-agent"))
+
    device_str = f"{'None' if not ua.device.model else ua.device.model}; {ua.device.brand}" 
 
    context_dict = {
@@ -38,10 +38,13 @@ async def root(request:Request):
 
    return templates.TemplateResponse("index.html", context_dict)
 
-@app.get('/request')
-async def read_header(request: Request):
-   headers_dict = request.headers
-   return headers_dict
+@app.get('/form')
+async def root(request:Request):
+   return templates.TemplateResponse("form.html", {"request": request})
+
+@app.post('/form')
+async def root(response: Response):
+   return {"message": "success", "data": response}
 
 if __name__ == "__main__":
    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
